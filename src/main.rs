@@ -78,12 +78,18 @@ mod tests {
     #[test]
     fn short_card_number() {
         let short_card_number = "464020709726259".to_string();
-        assert_ne!(verify_card_number(&short_card_number));
+        assert!(!verify_card_number(&short_card_number));
     }
 
     #[test]
     fn long_card_number() {
         let short_card_number = "46402070972625950".to_string();
-        assert_ne!(verify_card_number(&short_card_number));
+        assert!(!verify_card_number(&short_card_number));
+    }
+
+    #[test]
+    fn invalid_card_number() {
+        let short_card_number = "4640207097262596".to_string();
+        assert!(!verify_card_number(&short_card_number));
     }
 }
